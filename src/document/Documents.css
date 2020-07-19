@@ -1,0 +1,12 @@
+img {
+  height: 300px;
+  object-fit: scale-down;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.mt {
+  margin-top: 20px;
+}
