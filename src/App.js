@@ -3,7 +3,8 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import Document from "./document/Document";
 import Nav from "./navigation/Nav";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import ArtBoard from "./artBoard/ArtBoard";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import "./App.css";
 
@@ -17,7 +18,9 @@ const App = () => {
       <Router>
         <div>
           <Nav />
-          <Document />
+
+          <Route exact path="/" component={Document} />
+          <Route path="/artboards/:id" component={ArtBoard} />
         </div>
       </Router>
     </ApolloProvider>
