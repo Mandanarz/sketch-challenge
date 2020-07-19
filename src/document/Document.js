@@ -5,11 +5,17 @@ import { Link } from "react-router-dom";
 import "./Documents.css";
 
 class Document extends React.Component {
+  getUrlFriendlyName = (name) => {
+    return name.replace(/\s+/g, "-");
+  };
+
   getArtBoards = (artBoards) => {
     return artBoards.map((item, index) => {
+      const linkName =
+        item && item.name ? this.getUrlFriendlyName(item.name) : "";
       return (
         <Link
-          to={`/artboards/${index}`}
+          to={`/artboards/${linkName}`}
           key={index}
           className="col-md-3 col-xs-6 align-center"
           style={{ padding: "10px 0px 10px 0px" }}
