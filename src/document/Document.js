@@ -1,15 +1,17 @@
 import React from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import { Link } from "react-router-dom";
 import "./Documents.css";
 
 class Document extends React.Component {
   getArtBoards = (artBoards) => {
     return artBoards.map((item, index) => {
       return (
-        <div
+        <Link
+          to={`/artboards/${index}`}
           key={index}
-          className="col-3 align-center"
+          className="col-md-3 col-xs-6 align-center"
           style={{ padding: "10px 0px 10px 0px" }}
         >
           {item.files &&
@@ -17,15 +19,15 @@ class Document extends React.Component {
           item.files[0].thumbnails &&
           item.files[0].thumbnails[0] ? (
             <img
-              className="card-img-top"
+              className="thumbnail"
               src={item.files[0].thumbnails[0].url}
-              alt="Card image cap"
+              alt={item.name}
             />
           ) : (
             ""
           )}
           <p>{item.name}</p>
-        </div>
+        </Link>
       );
     });
   };

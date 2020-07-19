@@ -1,6 +1,9 @@
-img {
+.thumbnail {
   height: 300px;
   object-fit: scale-down;
+  flex-shrink: 0;
+  width: 100%;
+  margin: 5px;
 }
 
 .align-center {
