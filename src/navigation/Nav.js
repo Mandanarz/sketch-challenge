@@ -6,7 +6,7 @@ class Nav extends React.Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <Link className="navbar-brand" to="/">
-          Sketch
+          Document
         </Link>
         <button
           className="navbar-toggler"

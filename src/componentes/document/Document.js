@@ -1,6 +1,4 @@
 import React from "react";
-import { Query } from "react-apollo";
-import gql from "graphql-tag";
 import { Link } from "react-router-dom";
 import "./Documents.css";
 import { APIContext } from "../../contexts/ApiContext";
@@ -40,65 +38,10 @@ class Document extends React.Component {
   };
 
   render = () => {
-    console.log(this.context);
     return (
-      <Query
-        query={gql`
-          {
-            share(shortId: "Y8wDM") {
-              shortId
-              version {
-                document {
-                  name
-                  artboards {
-                    entries {
-                      name
-                      isArtboard
-                      files {
-                        url
-                        height
-                        width
-                        scale
-                        thumbnails {
-                          url
-                          height
-                          width
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        `}
-      >
-        {({ loading, error, data }) => {
-          if (loading) return <p>Loading...</p>;
-          if (error) return <p>Error</p>;
-
-          if (
-            data &&
-            data.share &&
-            data.share.version &&
-            data.share.version.document &&
-            data.share.version.document.artboards &&
-            data.share.version.document.artboards.entries
-          ) {
-            return (
-              <div className="container">
-                <div className="row mt">
-                  {this.getArtBoards(
-                    data.share.version.document.artboards.entries
-                  )}
-                </div>
-              </div>
-            );
-          }
-
-          return <p>No Data Available</p>;
-        }}
-      </Query>
+      <div className="container">
+        <div className="row mt">{this.getArtBoards(this.props.data)}</div>
+      </div>
     );
   };
 }
