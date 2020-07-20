@@ -4,7 +4,7 @@ import { getUrlFriendlyName } from "../utilities/urls";
 
 class Nav extends React.Component {
   getLinks = () => {
-    if (this.props.data) {
+    if (this.props.data && Array.isArray(this.props.data)) {
       return this.props.data.map((item) => {
         const linkName = item && item.name ? getUrlFriendlyName(item.name) : "";
 
