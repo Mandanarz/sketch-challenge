@@ -3,6 +3,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Link } from "react-router-dom";
 import "./Documents.css";
+import { APIContext } from "../../contexts/ApiContext";
 
 class Document extends React.Component {
   getUrlFriendlyName = (name) => {
@@ -39,6 +40,7 @@ class Document extends React.Component {
   };
 
   render = () => {
+    console.log(this.context);
     return (
       <Query
         query={gql`
@@ -101,4 +103,5 @@ class Document extends React.Component {
   };
 }
 
+Document.contextType = APIContext;
 export default Document;
