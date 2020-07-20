@@ -69,7 +69,9 @@ class App extends React.Component {
                   ) {
                     return (
                       <>
-                        <Nav />
+                        <Nav
+                          data={data.share.version.document.artboards.entries}
+                        />
                         <Route
                           exact
                           path="/"

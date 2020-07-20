@@ -1,7 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { getUrlFriendlyName } from "../utilities/urls";
 
 class Nav extends React.Component {
+  getLinks = () => {
+    if (this.props.data) {
+      return this.props.data.map((item) => {
+        const linkName = item && item.name ? getUrlFriendlyName(item.name) : "";
+
+        return (
+          <li className="nav-item active">
+            <Link className="nav-link" to={`/artboards/${linkName}`}>
+              {item.name}
+            </Link>
+          </li>
+        );
+      });
+    } else {
+      return null;
+    }
+  };
   render = () => {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -20,13 +38,7 @@ class Nav extends React.Component {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarText">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <Link className="nav-link" to="/">
-                Home
-              </Link>
-            </li>
-          </ul>
+          <ul className="navbar-nav mr-auto">{this.getLinks()}</ul>
         </div>
       </nav>
     );

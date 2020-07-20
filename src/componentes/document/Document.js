@@ -2,16 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Documents.css";
 import { APIContext } from "../../contexts/ApiContext";
+import { getUrlFriendlyName } from "../../utilities/urls";
 
 class Document extends React.Component {
-  getUrlFriendlyName = (name) => {
-    return name.replace(/\s+/g, "-");
-  };
-
   getArtBoards = (artBoards) => {
     return artBoards.map((item, index) => {
-      const linkName =
-        item && item.name ? this.getUrlFriendlyName(item.name) : "";
+      const linkName = item && item.name ? getUrlFriendlyName(item.name) : "";
       return (
         <Link
           to={`/artboards/${linkName}`}

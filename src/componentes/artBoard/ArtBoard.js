@@ -1,5 +1,6 @@
 import React from "react";
 import "./ArtBoard.css";
+import { getNameFromUrl } from "../../utilities/urls";
 
 class ArtBoard extends React.Component {
   getNameFromUrl = (param) => {
@@ -7,14 +8,13 @@ class ArtBoard extends React.Component {
   };
 
   getArtBoardData = () => {
-    console.log(this.props.data);
     let item = null;
     const param =
       this.props.match && this.props.match.params
         ? this.props.match.params.id
         : null;
     if (this.props.data && param) {
-      const name = this.getNameFromUrl(param);
+      const name = getNameFromUrl(param);
       item = this.props.data.find((el) => {
         return el.name === name;
       });
