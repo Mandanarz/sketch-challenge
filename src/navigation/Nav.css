@@ -1,0 +1,25 @@
+.navbar-nav .selected {
+  background-color: #0062cc;
+}
+
+.return {
+  height: 25px;
+  width: 25px;
+  background-color: #0062cc;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.return:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: "\274c";
+  font-size: 15px;
+  color: #fff;
+  line-height: 25px;
+  text-align: center;
+}
