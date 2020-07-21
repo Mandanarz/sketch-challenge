@@ -1,23 +1,18 @@
 import React from "react";
-import ApolloClient from "apollo-boost";
 import Document from "./componentes/document/Document";
 import Nav from "./navigation/Nav";
 import ArtBoard from "./componentes/artBoard/ArtBoard";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import "./App.css";
 
 import { getArtBoards } from "./services/ArtBoardService";
 
-const client = new ApolloClient({
-  uri: "https://graphql.sketch.cloud/api",
-});
-
 class App extends React.Component {
   state = { artBoards: {}, loading: true, error: null };
 
   componentDidMount() {
-    const data = getArtBoards().then(
+    getArtBoards().then(
       (response) => {
         if (
           response &&

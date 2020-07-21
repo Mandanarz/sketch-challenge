@@ -36,7 +36,7 @@ class ArtBoard extends React.Component {
     if (artBoardData && imageFile) {
       return (
         <div className="align-center">
-          <img className="big" src={imageFile.url} alt="Card image cap" />
+          <img className="big" src={imageFile.url} alt={artBoardData.name} />
         </div>
       );
     } else {

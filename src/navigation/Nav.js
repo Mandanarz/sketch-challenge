@@ -5,11 +5,11 @@ import { getUrlFriendlyName } from "../utilities/urls";
 class Nav extends React.Component {
   getLinks = () => {
     if (this.props.data && Array.isArray(this.props.data)) {
-      return this.props.data.map((item) => {
+      return this.props.data.map((item, key) => {
         const linkName = item && item.name ? getUrlFriendlyName(item.name) : "";
 
         return (
-          <li className="nav-item active">
+          <li key={key} className="nav-item active">
             <Link className="nav-link" to={`/artboards/${linkName}`}>
               {item.name}
             </Link>

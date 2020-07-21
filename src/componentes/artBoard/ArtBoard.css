@@ -1,5 +1,5 @@
 .big {
-  height: 600px;
+  max-height: 600px;
   object-fit: scale-down;
   flex-shrink: 0;
   width: 100%;
